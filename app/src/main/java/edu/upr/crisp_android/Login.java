@@ -19,17 +19,17 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    String username = ((EditText) findViewById(R.id.editText)).getText().toString();
-    String password = ((EditText)findViewById(R.id.editText2)).getText().toString();
-    public void login(View view) {
-        if (userPassMap.keySet().contains(username) && password.equals(userPassMap.get(username))) {
-            // TODO correct password
-        }
-        else {
-            // TODO incorrect password
-        }
-    }
-
+//    String username = ((EditText) findViewById(R.id.editText)).getText().toString();
+//    String password = ((EditText)findViewById(R.id.editText2)).getText().toString();
+//    public void login(View view) {
+//        if (userPassMap.keySet().contains(username) && password.equals(userPassMap.get(username))) {
+//            // TODO correct password
+//        }
+//        else {
+//            // TODO incorrect password
+//        }
+//    }
+//
     public void addUser(View view) {
         Intent intent = new Intent(this, AddUser.class);
         startActivity(intent);

@@ -16,23 +16,23 @@ public class AddUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_user);
-        intent = getIntent();
     }
 
     public void addUser(View view) {
-        Intent intent2 = new Intent(this, Login.class);
+        intent = new Intent(this, Login.class);
         username = ((EditText) findViewById(R.id.user)).getText().toString();
         password = ((EditText) findViewById(R.id.pass)).getText().toString();
         String confirmPassword = ((EditText) findViewById(R.id.confPass)).getText().toString();
         // TODO check that username is not already taken
         if (password.equals(confirmPassword)) {
             // TODO passwords match
-            intent2.putExtra("username", username);
-            intent2.putExtra("password", password);
+            intent.putExtra("username", username);
+            intent.putExtra("password", password);
+            startActivity(intent);
         }
         else {
             // TODO passwords do not match
         }
-        startActivity(intent2);
+
     }
 }
