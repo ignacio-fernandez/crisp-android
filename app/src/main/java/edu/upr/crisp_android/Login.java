@@ -32,9 +32,11 @@ public class Login extends AppCompatActivity {
 
     public void addUser(View view) {
         Intent intent = new Intent(this, AddUser.class);
-        String username = intent.getStringExtra("username");
-        String password = intent.getStringExtra("password");
-        userPassMap.put(username, password);
         startActivity(intent);
+        Intent intent2 = getIntent();
+        String username = intent2.getStringExtra("username");
+        String password = intent2.getStringExtra("password");
+        userPassMap.put(username, password);
+        System.out.println(userPassMap);
     }
 }
