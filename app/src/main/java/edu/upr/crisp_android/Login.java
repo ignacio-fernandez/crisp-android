@@ -18,13 +18,18 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        String password = intent.getStringExtra("password");
+        userPassMap.put(username, password);
+        System.out.println(userPassMap);
     }
 
 
     public void login(View view) {
         final String username = ((EditText) findViewById(R.id.editText)).getText().toString();
         final String password = ((EditText)findViewById(R.id.editText2)).getText().toString();
-        if (userPassMap.keySet().contains(username) && password.equals(userPassMap.get(username))) {
+        if (userPassMap.containsKey(username) && userPassMap.get(username).equals(password)) {
             Intent bidsIntent = new Intent(this, User.class);
             startActivity(bidsIntent);
         }
@@ -36,10 +41,9 @@ public class Login extends AppCompatActivity {
     public void addUser(View view) {
         Intent intent = new Intent(this, AddUser.class);
         startActivity(intent);
-        Intent intent2 = getIntent();
-        String username = intent2.getStringExtra("username");
-        String password = intent2.getStringExtra("password");
-        userPassMap.put(username, password);
-        System.out.println(userPassMap);
+    }
+
+    public Map<String, String> getUserPassMap() {
+        return userPassMap; 
     }
 }
