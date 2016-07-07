@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         final String username = ((EditText) findViewById(R.id.editText)).getText().toString();
         final String password = ((EditText)findViewById(R.id.editText2)).getText().toString();
         if (userPassMap.containsKey(username) && userPassMap.get(username).equals(password)) {
-            Intent bidsIntent = new Intent(this, User.class);
+            Intent bidsIntent = new Intent(this, Consumer.class);
             startActivity(bidsIntent);
         }
         else {
@@ -39,7 +39,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void addUser(View view) {
-        Intent intent = new Intent(this, AddUser.class);
+        Intent intent = new Intent(this, AddUserNames.class);
         startActivity(intent);
     }
 

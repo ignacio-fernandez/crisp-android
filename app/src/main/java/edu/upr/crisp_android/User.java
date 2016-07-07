@@ -1,22 +1,22 @@
 package edu.upr.crisp_android;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
+/**
+ * Created by ignacio on 07-07-16.
+ */
+public class User {
+    private final String username;
+    private final String password;
+    private final String name;
+    private final int profile; // 1: Consumer, 2: Producer, 3: Prosumer
 
-public class User extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_bids);
+    public User(String username, String password, String name, int profile) {
+        this.username = username;
+        this.password = password;
+        this.name = name; 
+        this.profile = profile;
     }
 
-    public void editBid(View view) {
-        //TODO
-    }
-
-    public void cancelBid(View view) {
-        //TODO
+    public int getProfile() {
+        return profile;
     }
 }

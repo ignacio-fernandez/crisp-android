@@ -15,8 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".User" />
-        <activity android:name=".AddUser"></activity>
+        <activity android:name=".Consumer" />
+        <activity android:name=".AddUserNames" />
+        <activity android:name=".Producer" />
+        <activity android:name=".Prosumer" />
+        <activity android:name=".SetPasswords"></activity>
     </application>
 
 </manifest>
