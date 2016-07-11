@@ -8,23 +8,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Consumer">
-    <Button
-        android:id="@+id/editBid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="editBid"
-        android:text="Edit Bid"
-        android:layout_alignTop="@+id/cancelBid"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="36dp" />
-    <Button
-        android:id="@+id/cancelBid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="cancelBid"
-        android:text="Cancel Bid"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="26dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Consumer"
+        android:id="@+id/textView12"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/abc_action_bar_content_inset_with_nav" />
 </RelativeLayout>

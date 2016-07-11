@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class Login extends AppCompatActivity {
 
-    private final Map<String, String> userPassMap = new HashMap<>();
+    private final Map<String, User> userPassMap = new HashMap<>();
 
 
     @Override
@@ -19,31 +19,45 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        String password = intent.getStringExtra("password");
-        userPassMap.put(username, password);
-        System.out.println(userPassMap);
+        final String username = intent.getStringExtra("username");
+        final String password = intent.getStringExtra("password");
+        final int profile = intent.getIntExtra("profile", 1);
+        final User user = new User(username, password, profile);
+        userPassMap.put(user.getUsername(), user);
     }
 
 
     public void login(View view) {
         final String username = ((EditText) findViewById(R.id.editText)).getText().toString();
         final String password = ((EditText)findViewById(R.id.editText2)).getText().toString();
-        if (userPassMap.containsKey(username) && userPassMap.get(username).equals(password)) {
-            Intent bidsIntent = new Intent(this, Consumer.class);
-            startActivity(bidsIntent);
+        if (userPassMap.containsKey(username)) {
+            final User user = userPassMap.get(username);
+            if (user.getPassword().equals(password)) {
+                final int profile = user.getProfile();
+                if (profile == 1) {
+                    Intent intent = new Intent(this, Consumer.class);
+                    startActivity(intent);
+                }
+                else if (profile == 2) {
+                    Intent intent = new Intent(this, Producer.class);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(this, Prosumer.class);
+                    startActivity(intent);
+                }
+            }
+            else {
+                throw new RuntimeException("Incorrect password!");
+            }
         }
         else {
-            // TODO incorrect password
+            throw new RuntimeException("Incorrect username!");
         }
     }
 
     public void addUser(View view) {
         Intent intent = new Intent(this, AddUserNames.class);
         startActivity(intent);
-    }
-
-    public Map<String, String> getUserPassMap() {
-        return userPassMap; 
     }
 }
