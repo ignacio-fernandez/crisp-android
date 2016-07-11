@@ -19,7 +19,8 @@
         <activity android:name=".AddUserNames" />
         <activity android:name=".Producer" />
         <activity android:name=".Prosumer" />
-        <activity android:name=".SetPasswords"></activity>
+        <activity android:name=".SetPasswords" />
+        <activity android:name=".SetProfile"></activity>
     </application>
 
 </manifest>

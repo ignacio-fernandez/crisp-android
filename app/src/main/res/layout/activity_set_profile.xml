@@ -7,44 +7,47 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AddUserNames">
+    tools:context="edu.upr.crisp_android.SetProfile">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Username "
-        android:id="@+id/textView4"
+        android:text="Set Profile"
+        android:id="@+id/textView9"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/abc_action_bar_content_inset_with_nav" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="User Name"
-        android:id="@+id/textView7"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="71dp"
-        android:layout_centerVertical="true" />
+        android:text="Consumer"
+        android:id="@+id/consumer"
+        android:layout_below="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_marginTop="42dp"
+        android:layout_alignEnd="@+id/textView9"
+        android:onClick="setConsumerProfile" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
-        android:id="@+id/next"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="setPasswordScreen"
-        android:nestedScrollingEnabled="false" />
+        android:text="Producer"
+        android:id="@+id/producer"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/consumer"
+        android:layout_alignEnd="@+id/consumer"
+        android:onClick="setProducerProfile" />
 
-    <EditText
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/userName"
-        android:layout_alignBottom="@+id/textView7"
-        android:layout_toEndOf="@+id/textView7"
-        android:layout_alignEnd="@+id/textView4" />
-
+        android:text="Prosumer"
+        android:id="@+id/prosumer"
+        android:layout_below="@+id/producer"
+        android:layout_marginTop="50dp"
+        android:layout_alignStart="@+id/producer"
+        android:layout_alignEnd="@+id/producer"
+        android:onClick="setProsumerProfile" />
 </RelativeLayout>
