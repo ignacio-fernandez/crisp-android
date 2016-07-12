@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
             }
         }
         else {
-            throw new RuntimeException("Incorrect username!");
+            throw new RuntimeException("Username does not exist!");
         }
     }
 
