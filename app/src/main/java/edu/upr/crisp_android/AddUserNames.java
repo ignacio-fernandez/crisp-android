@@ -7,11 +7,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class AddUserNames extends AppCompatActivity {
 
     private static Intent intent;
-    private int profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,27 +20,29 @@ public class AddUserNames extends AppCompatActivity {
         intent = new Intent(this, Login.class);
     }
 
-    public void createConsumerProfile(View view) {
-        profile = 1;
-    }
-
-    public void createProducerProfile(View view) {
-        profile = 2;
-    }
-
-    public void createProsumerProfile(View view) {
-        profile = 3;
-    }
-
-    public void addUser(View view) {
+    public void setProfile(View view) {
+        final String firstName = ((EditText) findViewById(R.id.firstNameText)).getText().toString();
+        final String lastName = ((EditText) findViewById(R.id.lastNameText)).getText().toString();
         final String username = ((EditText) findViewById(R.id.userNameText)).getText().toString();
+        final String email = ((EditText) findViewById(R.id.emailText)).getText().toString();
         final String password = ((EditText) findViewById(R.id.passwordText)).getText().toString();
         final String confirmPassword = ((EditText) findViewById(R.id.confirmPasswordText)).getText().toString();
-        intent = new Intent(this, Login.class);
+        final int profile = view.getId();
+        intent.putExtra("first name", firstName);
+        intent.putExtra("last name", lastName);
+        intent.putExtra("username", username);
+        intent.putExtra("email", email);
         if (password.equals(confirmPassword)) {
-            intent.putExtra("username", username);
             intent.putExtra("password", password);
-            intent.putExtra("profile", profile);
+            if (profile == R.id.consumerButton) {
+                intent.putExtra("profile", 1);
+            }
+            else if (profile == R.id.producerButton) {
+                intent.putExtra("profile", 2);
+            }
+            else {
+                intent.putExtra("profile", 3);
+            }
             startActivity(intent);
         }
         else {

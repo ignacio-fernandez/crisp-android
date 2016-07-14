@@ -21,38 +21,35 @@ public class Login extends AppCompatActivity {
         Intent intent = getIntent();
         final String username = intent.getStringExtra("username");
         final String password = intent.getStringExtra("password");
+        final String firstName = intent.getStringExtra("first name");
+        final String lastName = intent.getStringExtra("last name");
+        final String email = intent.getStringExtra("email");
         final int profile = intent.getIntExtra("profile", 1);
-        final User user = new User(username, password, profile);
+        final User user = new User(firstName, lastName, username, email, password, profile);
         userPassMap.put(user.getUsername(), user);
     }
 
 
     public void login(View view) {
-        final String username = ((EditText) findViewById(R.id.editText)).getText().toString();
-        final String password = ((EditText)findViewById(R.id.editText2)).getText().toString();
-        if (userPassMap.containsKey(username)) {
-            final User user = userPassMap.get(username);
-            if (user.getPassword().equals(password)) {
-                final int profile = user.getProfile();
-                if (profile == 1) {
-                    Intent intent = new Intent(this, Consumer.class);
-                    startActivity(intent);
-                }
-                else if (profile == 2) {
-                    Intent intent = new Intent(this, Producer.class);
-                    startActivity(intent);
-                }
-                else {
-                    Intent intent = new Intent(this, Prosumer.class);
-                    startActivity(intent);
-                }
+        final String username = ((EditText) findViewById(R.id.usernameText)).getText().toString();
+        final String password = ((EditText)findViewById(R.id.passwordText)).getText().toString();
+        User user = userPassMap.get(username);
+        Intent intent;
+        if (password.equals(user.getPassword())) {
+            final int profile = user.getProfile();
+            if (profile == 1) {
+                intent = new Intent(this, Consumer.class);
+            }
+            else if (profile == 2) {
+                intent = new Intent(this, Producer.class);
             }
             else {
-                throw new RuntimeException("Incorrect password!");
+                intent = new Intent(this, Prosumer.class);
             }
+            startActivity(intent);
         }
         else {
-            throw new RuntimeException("Username does not exist!");
+            throw new RuntimeException("Incorrect username/password");
         }
     }
 

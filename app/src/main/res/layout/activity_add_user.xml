@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AddUserNames">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
@@ -15,105 +9,80 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Enter Info"
         android:id="@+id/textView4"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:textSize="@dimen/abc_action_bar_content_inset_with_nav" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="User Name"
-        android:id="@+id/textView7"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="55dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Password"
-        android:id="@+id/textView13"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Confirm Password"
-        android:id="@+id/textView14"
-        android:layout_below="@+id/textView13"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp" />
+        android:id="@+id/firstNameText"
+        android:layout_gravity="center_horizontal"
+        android:hint="First Name" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/passwordText"
-        android:layout_alignBottom="@+id/textView13"
-        android:layout_alignEnd="@+id/confirmPasswordText" />
+        android:id="@+id/lastNameText"
+        android:layout_gravity="center_horizontal"
+        android:hint="Last Name" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/confirmPasswordText"
-        android:layout_alignBottom="@+id/textView14"
-        android:layout_toEndOf="@+id/textView14" />
-
-    <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/userNameText"
-        android:layout_alignBottom="@+id/textView7"
-        android:layout_alignEnd="@+id/textView4"
-        android:layout_alignStart="@+id/passwordText" />
+        android:layout_gravity="center_horizontal"
+        android:hint="User Name" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailText"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textEmailAddress"
+        android:hint="Email" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordText"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textPassword"
+        android:hint="Password" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirmPasswordText"
+        android:layout_gravity="center_horizontal"
+        android:inputType="textPassword"
+        android:hint="Confirm Password" />
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Consumer"
-        android:id="@+id/button2"
-        android:layout_below="@+id/textView14"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_toStartOf="@+id/button5"
-        android:onClick="createConsumerProfile" />
+        android:layout_gravity="center"
+        android:textSize="18dp"
+        android:text="Select Profile"/>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create Producer"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_alignEnd="@+id/button2"
-        android:onClick="createProducerProfile" />
-
+        android:text="Consumer"
+        android:id="@+id/consumerButton"
+        android:layout_gravity="center"
+        android:onClick="setProfile" />
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create Prosumer"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
-        android:layout_alignStart="@+id/button3"
-        android:layout_alignEnd="@+id/button3"
-        android:onClick="createProsumerProfile" />
-
+        android:text="Producer"
+        android:id="@+id/producerButton"
+        android:layout_gravity="center"
+        android:onClick="setProfile" />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add User"
-        android:id="@+id/button5"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/confirmPasswordText"
-        android:onClick="addUser" />
+        android:text="Prosumer"
+        android:id="@+id/prosumerButton"
+        android:layout_gravity="center"
+        android:onClick="setProfile" />
 
-</RelativeLayout>
+</LinearLayout>

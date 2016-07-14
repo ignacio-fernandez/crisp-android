@@ -7,11 +7,17 @@ public class User {
     private final String username;
     private final String password;
     private final int profile; // 1: Consumer, 2: Producer, 3: Prosumer
+    private final String firstName;
+    private final String lastName;
+    private final String email;
 
-    public User(String username, String password, int profile) {
+    public User(String firstName, String lastName, String username, String email, String password, int profile) {
         this.username = username;
         this.password = password;
         this.profile = profile;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     public String getUsername() { return this.username; }
